@@ -41,8 +41,7 @@ def main():
 
     args = get_args()
     ending = '!' if args.excited else '.'
-    print(args.greeting + ', ' + args.name + '.')
-
+    print(args.greeting + ', ' + args.name + ending)
 # --------------------------------------------------
 if __name__ == '__main__':
     main()
