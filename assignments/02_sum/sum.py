@@ -20,15 +20,31 @@ def get_args():
                         metavar='int',
                         type=int,
                         nargs='+')
+    parser.add_argument('--sum', dest='accumulate', action='store_const',
+                    const=sum, default=sum,
+                    help='sum the integers (default: find the max)')
+                        
     return parser.parse_args()
-
 # --------------------------------------------------
 def main():
     """Make a jazz noise here"""
+    numList = []
     args = get_args()
-    numList = args.nums
-    print('{} = {}'.format('+'.join(map(str, numList)), sum(numList)))
-
+    for num in args.integers:
+        numList.append(num)
+    for num in numList:
+        num = str(num)
+    print(numList)
+    print(len(numList))
+    JoinList = ''
+    if len(numList) > 1: 
+        for element in (numList):
+            JoinList = ' + '.join(str(element))
+        print(JoinList, "=", (args.accumulate(args.integers)))
+        
+    else:
+        print((args.accumulate(args.integers)), '=', (args.accumulate(args.integers))) 
+     
 # --------------------------------------------------
 if __name__ == '__main__':
     main()

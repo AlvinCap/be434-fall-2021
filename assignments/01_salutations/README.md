@@ -89,7 +89,7 @@ export PATH=~/.local/bin:$PATH
 Then use the `source` command to read this file and alter your `$PATH`:
 
 ```
-source ~/.bashrc
+
 ```
 
 The dot (`.`) is an alias for `source` when it is used as a command:
