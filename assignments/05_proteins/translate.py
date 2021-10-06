@@ -15,7 +15,7 @@ def get_args():
     parser.add_argument('-c',
                         '--codons',
                         help='Codon Table for Translate',
-                        metavar='Codons', nargs='*',
+                        metavar='Codons', 
                         required=True,
                         type=argparse.FileType('rt'))
 
@@ -33,6 +33,13 @@ def get_args():
 def main():
     """Make a jazz noise here"""
     args = get_args()
+    CodonT = {}
+    for line in args.codons:
+        key, value = line.rstrip().split() 
+        CodonT[key] = value
+        
+        
+    
     
     
 # -----------------------------------------------
