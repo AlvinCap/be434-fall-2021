@@ -33,11 +33,24 @@ def get_args():
 def main():
     """Make a jazz noise here"""
     args = get_args()
+    seq = args.sequence
+    inFile = args.codons
+    outFile = args.output
+
     CodonT = {}
-    for line in args.codons:
+    for line in inFile:
         key, value = line.rstrip().split() 
         CodonT[key] = value
-        
+    k = 3
+    sequenceP = [] 
+    for kmer in [seq[i:i + k] for i in range(0, len(seq), k)]:
+        sequenceP.append(CodonT.get(kmer.upper(), '-'))
+    outFile.write(''.join(sequenceP))
+    outFile.close()
+    print('Output written to "{}".'.format(outFile.name))
+
+    
+
         
     
     
