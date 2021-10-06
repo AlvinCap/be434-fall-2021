@@ -12,31 +12,29 @@ def get_args():
         description='Translate',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('--c',
+    parser.add_argument('-c',
                         '--codons',
                         help='Codon Table for Translate',
                         metavar='Codons', nargs='*',
+                        required=True,
                         type=argparse.FileType('rt'))
 
-    parser.add_argument('--o',
-                    '--output',
-                    help='Output File',
-                    type=argparse.FileType('wt'))
+    parser.add_argument('-o',
+                        '--output',
+                        help='Output File',
+                        type=argparse.FileType('wt'), default='out.txt')
                     
-    parser.add_argument('--s',
-                    '--sequence',
-                    help='The string sequence',
-                    metavar='str',
-                    type=str,
-                    default=None)
+    parser.add_argument('sequence',
+                        help='The string sequence',
+                        metavar='str')
                         
     return parser.parse_args()
-
 # --------------------------------------------------
 def main():
     """Make a jazz noise here"""
     args = get_args()
-    print(args)
+    
+    
 # -----------------------------------------------
 if __name__ == '__main__':
     main()
