@@ -39,8 +39,6 @@ def main():
     """Make a jazz noise here"""
 
     args = get_args()
-    file1 = args.file1
-    file2 = args.file2
     fileOut = args.output
     file1words = set(args.file1.read().rstrip().split())
     file2words = set(args.file2.read().rstrip().split())
