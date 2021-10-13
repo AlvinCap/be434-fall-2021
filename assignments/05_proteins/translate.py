@@ -41,6 +41,7 @@ def main():
     for line in inFile:
         key, value = line.rstrip().split() 
         CodonT[key] = value
+
     k = 3
     sequenceP = [] 
     for kmer in [seq[i:i + k] for i in range(0, len(seq), k)]:
@@ -49,12 +50,6 @@ def main():
     outFile.close()
     print('Output written to "{}".'.format(outFile.name))
 
-    
-
-        
-    
-    
-    
 # -----------------------------------------------
 if __name__ == '__main__':
     main()

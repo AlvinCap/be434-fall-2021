@@ -2,27 +2,23 @@
 """
 Author : Alvin Onyango <capalvin@localhost>
 Date   : 2021-09-28
-Purpose: Concatenate Files
+Purpose: Counting Words
 """
 import argparse
-
-
+import sys
 # --------------------------------------------------
 def get_args():
     """Get command-line arguments"""
     parser = argparse.ArgumentParser(
-        description='Cat Files',
+        description='Word Count',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('files',
                         help='A readable input file(s)',
-                        nargs='+',
+                        metavar='File',
+                        nargs='*',
+                        default=[sys.stdin],
                         type=argparse.FileType('rt'))
-
-    parser.add_argument('-n',
-                        '--number',
-                        help='A Boolean Flag to Number Lines (default: False)',
-                        action='store_true')
 
     return parser.parse_args()
 
@@ -31,16 +27,25 @@ def get_args():
 def main():
     """Make a jazz noise here"""
     args = get_args()
+    total_lines = 0 
+    total_words = 0 
+    total_chars = 0
+
     for fh in args.files:
-        line_num = 0
+        num_lines = 0
+        num_words = 0
+        num_char = 0
         for line in fh:
-            line_num += 1
-            if args.number:
-                print("{:>6}\t{}".format(line_num, line.rstrip()))
-            else:
-                print(line.rstrip())
+            num_lines += 1
+            num_words += (len(line.split()))
+            num_char += len(line)
+        print('{:>8}{:>8}{:>8} {}'.format(num_lines, num_words, num_char, fh.name))
+        total_lines += num_lines 
+        total_words += num_words 
+        total_chars += num_char
 
-
+    if len(args.files) >1: 
+        print('{:>8}{:>8}{:>8} total'.format(total_lines, total_words, total_chars))
 # -----------------------------------------------
 if __name__ == '__main__':
     main()
