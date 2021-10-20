@@ -86,6 +86,8 @@ def main():
     if outFile != sys.stdout:
         print('Done, see output in "{}"'.format(outFile.name))
         outFile.close()
+    else:
+        pass
 
 
 # --------------------------------------------------
