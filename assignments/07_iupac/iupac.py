@@ -47,35 +47,35 @@ def main():
         for element in value:
             if element == 'A':
                 newValue += "A"
-            if element == 'C':
+            elif element == 'C':
                 newValue += "C"
-            if element == 'G':
+            elif element == 'G':
                 newValue += "G"
-            if element == 'T':
+            elif element == 'T':
                 newValue += "T"
-            if element == 'U':
+            elif element == 'U':
                 newValue += "U"
-            if element == 'R':
+            elif element == 'R':
                 newValue += "[AG]"
-            if element == 'Y':
+            elif element == 'Y':
                 newValue += "[CT]"
-            if element == 'S':
+            elif element == 'S':
                 newValue += "[GC]"
-            if element == 'W':
+            elif element == 'W':
                 newValue += "[AT]"
-            if element == 'K':
+            elif element == 'K':
                 newValue += "[GT]"
-            if element == 'M':
+            elif element == 'M':
                 newValue += "[AC]"
-            if element == 'B':
+            elif element == 'B':
                 newValue += "[CGT]"
-            if element == 'D':
+            elif element == 'D':
                 newValue += "[AGT]"
-            if element == 'H':
+            elif element == 'H':
                 newValue += "[ACT]"
-            if element == 'V':
+            elif element == 'V':
                 newValue += "[ACG]"
-            if element == 'N':
+            elif element == 'N':
                 newValue += "[ACGT]"
             else:
                 newValue += ''
