@@ -25,7 +25,7 @@ def get_args():
                         metavar='str')
 
     parser.add_argument('-o',
-                        '--output',
+                        '--outfile',
                         help='Output File',
                         type=argparse.FileType('wt'),
                         default=sys.stdout)
@@ -40,7 +40,7 @@ def main():
     args = get_args()
     code = args.seq
     codeList = code
-    outFile = args.output
+    outFile = args.outfile
 
     for value in codeList:
         newValue = value + ' '
