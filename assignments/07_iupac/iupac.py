@@ -2,52 +2,32 @@
 """
 Author : capalvin <capalvin@localhost>
 Date   : 2021-10-13
-Purpose: Rock the Casbah
+Purpose: Translate Iupac
 """
 
 import argparse
-
+import sys
 
 # --------------------------------------------------
 def get_args():
     """Get command-line arguments"""
 
     parser = argparse.ArgumentParser(
-        description='Rock the Casbah',
+        description='IUPAC Sequence',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('positional',
-                        metavar='str',
-                        help='A positional argument')
-
-    parser.add_argument('-a',
-                        '--arg',
-                        help='A named string argument',
-                        metavar='str',
-                        type=str,
-                        default='')
-
-    parser.add_argument('-i',
-                        '--int',
-                        help='A named integer argument',
-                        metavar='int',
-                        type=int,
-                        default=0)
-
-    parser.add_argument('-f',
-                        '--file',
-                        help='A readable file',
-                        metavar='FILE',
-                        type=argparse.FileType('rt'),
-                        default=None)
-
+    parser.add_argument('seq',
+                        help='A positional argument',
+                        nargs='+',
+                        metavar='str')
+    
     parser.add_argument('-o',
-                        '--on',
-                        help='A boolean flag',
-                        action='store_true')
+                    '--output',
+                    help='Output File',
+                    type=argparse.FileType('wt'),
+                    default=sys.stdout)
 
     return parser.parse_args()
-
 
 # --------------------------------------------------
 def main():
