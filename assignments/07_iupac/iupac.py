@@ -20,7 +20,7 @@ def get_args():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('seq',
-                        help='Sequential Position Arguement',
+                        help='Seq Position Argument',
                         nargs='+',
                         metavar='str')
 
@@ -40,6 +40,7 @@ def main():
     args = get_args()
     code = args.seq
     codeList = code
+    outFile = args.output
 
     for value in codeList:
         newValue = value + ' '
@@ -78,7 +79,13 @@ def main():
                 newValue += "[ACGT]"
             else:
                 newValue += ''
-        print(newValue)
+        if outFile == sys.stdout:
+            print(newValue)
+        else:
+            outFile.write((newValue + '\n'))
+    if outFile != sys.stdout:
+        print('Done, see output in "{}"'.format(outFile.name))
+        outFile.close()
 
 
 # --------------------------------------------------
