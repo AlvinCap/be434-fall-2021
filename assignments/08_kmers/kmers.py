@@ -6,7 +6,6 @@ Purpose: Rock the Casbah
 """
 
 import argparse
-import parser
 
 
 # --------------------------------------------------
@@ -39,8 +38,10 @@ def get_args():
         parser.error(f'--kmer "{args.kmer}" must be > 0')
     return args
 
+
 # --------------------------------------------------
 def main():
+    """Make a jazz noise here"""
 
     args = get_args()
     kmers1 = {}
@@ -59,8 +60,9 @@ def main():
     # print(kmers2)
     commonk = set(kmers1).intersection(set(kmers2))
     # print(commonk)
-    for kmer in commonk: 
-        print(kmer, kmers1[kmer], kmers2[kmer])
+    for kmer in commonk:
+        print('{:<10}{:>6}{:>6}'.format(kmer, kmers1[kmer], kmers2[kmer]))
+
 
 def find_kmers(seq, k):
     """ Find k-mers in string """
