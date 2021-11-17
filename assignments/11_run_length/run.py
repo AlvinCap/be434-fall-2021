@@ -6,6 +6,7 @@ Purpose: Rock the Casbah
 """
 
 import argparse
+import os
 
 
 # --------------------------------------------------
@@ -16,9 +17,9 @@ def get_args():
         description='Rock the Casbah',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('FILE',
-                        help='A readable file',
-                        metavar='FILE',
+    parser.add_argument('input',
+                        help='A readable text/file',
+                        metavar=str,
                         type=argparse.FileType('rt'))
 
     return parser.parse_args()
@@ -28,6 +29,9 @@ def get_args():
 def main():
     """Make a jazz noise here"""
     args = get_args()
+    input = args.input
+    if os.path.exists(input)
+
     
 
 
