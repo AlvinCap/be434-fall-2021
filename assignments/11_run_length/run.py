@@ -16,14 +16,10 @@ def get_args():
         description='Rock the Casbah',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('sequence', metavar='seq', help='A  argument')
-
-    parser.add_argument('-f',
-                        '--file',
+    parser.add_argument('FILE',
                         help='A readable file',
                         metavar='FILE',
-                        type=argparse.FileType('rt'),
-                        default=None)
+                        type=argparse.FileType('rt'))
 
     return parser.parse_args()
 
@@ -31,6 +27,9 @@ def get_args():
 # --------------------------------------------------
 def main():
     """Make a jazz noise here"""
+    args = get_args()
+    
+
 
 
 # --------------------------------------------------
