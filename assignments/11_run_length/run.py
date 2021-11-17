@@ -17,7 +17,7 @@ def get_args():
         description='Rock the Casbah',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('input',
+    parser.add_argument('inputvalue',
                         help='A readable text/file',
                         metavar=str,
                         type=argparse.FileType('rt'))
@@ -29,15 +29,17 @@ def get_args():
 def main():
     """Make a jazz noise here"""
     args = get_args()
-    input = args.input
-
-
+    inputv = args.inputvalue
+    if os.path.exists(inputv) and os.path.isfile(inputv):
+        input_type = 'f'
+    else:
+        input_type = 'text'
+    if input_type == 'f':
+        sequences = inputv.file.read().splitlines()
+    else:
+        seq = str(inputv)
+        
     
-
-
-
-    
-
 
 
 # --------------------------------------------------
