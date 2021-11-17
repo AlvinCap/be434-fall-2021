@@ -30,7 +30,11 @@ def main():
     """Make a jazz noise here"""
     args = get_args()
     input = args.input
-    if os.path.exists(input)
+
+
+    
+
+
 
     
 
