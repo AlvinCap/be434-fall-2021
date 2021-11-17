@@ -40,7 +40,7 @@ def main():
         for element in charseq:
             bases.append(element[i])
         # print(bases)
-        if all([bases[0] == base for base in bases]):
+        if all(bases[0] == base for base in bases):
             print('|', end='')
         else:
             print('X', end='')
