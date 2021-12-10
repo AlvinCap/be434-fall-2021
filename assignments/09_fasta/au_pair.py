@@ -4,11 +4,9 @@ Author : capalvin <capalvin@localhost>
 Date   : 2021-11-01
 Purpose: Rock the Casbah
 """
-
 import argparse
 import os
 from Bio import SeqIO
-
 
 # --------------------------------------------------
 def get_args():
