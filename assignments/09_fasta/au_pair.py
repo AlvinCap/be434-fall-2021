@@ -44,13 +44,13 @@ def main():
     if not os.path.isdir(outF):
         os.makedirs(outF)
     for file in args.files:
-        root, ext = os.path.splitext(os.path.baseman(file.name))
+        root, ext = os.path.splitext(os.path.basename(file.name))
         forward = open(os.path.join(outF, root + '_1' + ext), 'wt')
         reverse = open(os.path.join(outF, root + '_2' + ext), 'wt')
         parser = SeqIO.parse(file, 'fasta')
         for i, rec in enumerate(parser):
             SeqIO.write(rec, forward if i % 2 == 0 else reverse, 'fasta')
-        print(f'Done, see output in "{outF}"')
+    print(f'Done, see output in "{outF}"')
 
 
 # --------------------------------------------------
