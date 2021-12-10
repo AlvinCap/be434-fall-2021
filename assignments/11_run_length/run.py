@@ -17,10 +17,9 @@ def get_args():
         description='Rock the Casbah',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('inputvalue',
-                        help='A readable text/file',
-                        metavar=str,
-                        type=argparse.FileType('rt'))
+    parser.add_argument('inputval',
+                        help='A readable DNA text or file',
+                        metavar=str)
 
     return parser.parse_args()
 
@@ -29,17 +28,16 @@ def get_args():
 def main():
     """Make a jazz noise here"""
     args = get_args()
-    inputv = args.inputvalue
+    inputv = args.inputval
     if os.path.exists(inputv) and os.path.isfile(inputv):
         input_type = 'f'
-    else:
-        input_type = 'text'
-    if input_type == 'f':
-        sequences = inputv.file.read().splitlines()
-    else:
-        seq = str(inputv)
-        
-    
+        if input_type == 'f':
+            sequences = open(file=inputv, mode='rt', encoding='UTF-8')
+            seqfile = (sequences.readlines())
+            print(seqfile)
+        else:
+            seq = (inputv)
+            print(seq)
 
 
 # --------------------------------------------------

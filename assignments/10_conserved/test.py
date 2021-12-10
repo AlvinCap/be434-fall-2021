@@ -10,6 +10,8 @@ PRG = './conserved.py'
 GOOD1 = './inputs/seqs1.fa'
 GOOD2 = './inputs/seqs2.fa'
 
+# pylint: disable=use-a-generator
+
 
 # --------------------------------------------------
 def random_string():

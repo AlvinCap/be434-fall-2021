@@ -10,6 +10,8 @@ SAMPLE2 = 'samples/sample2.txt'
 SAMPLE3 = 'samples/sample3.txt'
 
 
+# pylint: disable=consider-using-with,unspecified-encoding
+
 # --------------------------------------------------
 def test_exists():
     """ Program exists """
